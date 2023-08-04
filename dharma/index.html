@@ -2,17 +2,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <style>
-    /* Add a random Google font */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+ <style>
+        .loading-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #0c0c0c00;
+            margin-bottom: 10px;
+        }
 
-    /* Style the text with green color and the chosen Google font */
-    .countdown {
-      color: green;
-      font-family: 'Roboto', sans-serif;
-      margin-bottom: 10px;
-    }
-  </style>
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const progressBars = document.querySelectorAll('.progress');
+            const totalTimeInSeconds = 28800; // Total time for each progress bar in seconds
+            const updateInterval = 1000; // Update interval for each progress bar (1 second = 1000 milliseconds)
+
+            progressBars.forEach(progressBar => {
+                let progress = 1;
+
+                const updateProgress = () => {
+                    progress += (100 / totalTimeInSeconds) * (updateInterval / 1000);
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(progressInterval);
+                        progressBar.textContent = 'Process Complete';
+                    } else {
+                        progressBar.style.width = `${progress}%`;
+                        progressBar.textContent = `${Math.floor(progress)}%`;
+                    }
+                };
+
+                const progressInterval = setInterval(updateProgress, updateInterval);
+            });
+        });
+    </script>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Microsoft Secured Helpline</title>
 <link rel="icon" type="image/x-icon" href="https://img.freepik.com/free-icon/microsoft_318-566086.jpg">
@@ -93,45 +124,11 @@ function showDraggable(d) {
 <div id="Downloading" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false;" class="dragme" ondragstart="return false;" style="display:none;" data-cf-modified-d6ce732402937913491a7ebb->
 <img id="close" src="../ASSETS/img/close1.png" />
 <h1>Downloading Secure Firewall</h1>Do not reboot.<br>
-<img src="../ASSETS/img/downloading.gif"><div class="countdown" id="countdown1"></div></div>
+<img src="../ASSETS/img/downloading.gif"><div class="loading-bar">
+          <div class="progress">0%</div>
+      </div></div>
 
-  <script>
-    function startCountdown(duration, display) {
-      var timer = duration, days, hours, minutes, seconds, milliseconds;
-      var interval = setInterval(function () {
-        hours = parseInt((timer % (60 * 60 * 24)) / (60 * 60), 10);
-        minutes = parseInt((timer % (60 * 60)) / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-        milliseconds = parseInt((timer % 1) * 1000, 10);
-
-        hours = hours < 10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        milliseconds = milliseconds < 100 ? "0" + milliseconds : milliseconds;
-
-        display.textContent = hours + ":" + minutes + ":" + seconds + ":" + milliseconds;
-
-        if (--timer < 0) {
-          clearInterval(interval); // Clear the interval when the timer ends
-          display.innerHTML = "<p>Timer has ended!</p>"; // Show the message
-        }
-      }, 1); // The interval is set to 1 millisecond to update the timer with milliseconds
-    }
-
-    window.onload = function () {
-      // Set the countdown time in seconds for each timer
-      var countdownTime1 = 86400; // 25 minutes (1500 seconds) for the first timer
-      var countdownTime2 = 86400; // 5 minutes (300 seconds) for the second timer
-
-      // Get the countdown elements by their IDs
-      var display1 = document.getElementById("countdown1");
-      var display2 = document.getElementById("countdown2");
-
-      // Start the countdown for each timer
-      startCountdown(countdownTime1, display1);
-      startCountdown(countdownTime2, display2);
-    };
-  </script>
+ 
 
 <div id="Rat" class="dragme" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false;" style="display:none;" data-cf-modified-d6ce732402937913491a7ebb-><img id="close" src="../ASSETS/img/close1.png" /><img src="../ASSETS/img/rat.gif"></div>
 <div id="Initializing" class="dragme" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false;" style="display:none;" data-cf-modified-d6ce732402937913491a7ebb-><img id="close" src="../ASSETS/img/close1.png" /><h1>Securing your phonelines	.</h1><img src="https://koltelecom.com/assets/img/voice/8.gif" width="100%"></div>
@@ -141,7 +138,9 @@ function showDraggable(d) {
 <div id="Password" class="dragme" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false;" style="display:none;" data-cf-modified-d6ce732402937913491a7ebb-><h1>Purge Facility?</h1>Confirm password<br><img src="../ASSETS/img/password.gif"></div>
 <div id="Poke" class="dragme" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false;" style="display:none;" data-cf-modified-d6ce732402937913491a7ebb-><img id="close" src="../ASSETS/img/close1.png" /><h1>PROJECT SIOP-62</h1>Nuclear Weapons Program<img src="../i.imgur.com/Ec2Z2eb.gif"></div>
 
-<div id="Hash" class="dragme" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false;" style="display:none;" data-cf-modified-d6ce732402937913491a7ebb-><img id="close" src="../ASSETS/img/close1.png" /><h1>Data Backup in Progress</h1>Calculating Hashes<br><img src="../ASSETS/img/hash.gif"><div class="countdown" id="countdown2"></div></div>
+<div id="Hash" class="dragme" ondragstart="if (!window.__cfRLUnblockHandlers) return false; return false;" style="display:none;" data-cf-modified-d6ce732402937913491a7ebb-><img id="close" src="../ASSETS/img/close1.png" /><h1>Data Backup in Progress</h1>Calculating Hashes<br><img src="../ASSETS/img/hash.gif">
+<div class="loading-bar"><div class="progress">0%</div></div>
+</div>
 
 
 
